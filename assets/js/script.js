@@ -41,7 +41,14 @@ function checkAnswer() {
 
 }
 
+/**
+ * Gets the operands and the operator from the DOM
+ * and calculates the correct answer.
+ */
 function calculateCorrectAnswer() {
+
+    let operand1 = parseInt(document.getElementById(operand1).innerText);
+    let operand2 = parseInt(document.getElementById(operand2).innerText);
 
 }
 
