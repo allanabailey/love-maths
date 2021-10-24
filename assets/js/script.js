@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
     let num2 = Math.floor(Math.random() * 25) + 1;
+    let num3 = num1 * num2;
 
     if (gameType === "addition") {
         displayAdditionQuestion(num1, num2);
@@ -47,7 +48,7 @@ document.addEventListener("DOMContentLoaded", function() {
     } else if(gameType === "subtract") {
         displaySubtractQuestion(num1, num2);
     } else if(gameType === "division") {
-        displayDivideQuestion(num1, num2);
+        displayDivideQuestion(num3, num2);
     } else {
         alert(`Unknown game type: ${gameType}`);
         throw `Unknown game type: ${gameType}. Aborting!`;
@@ -138,7 +139,7 @@ function displayMultiplyQuestion(operand1, operand2) {
 }
 
 function displayDivideQuestion(operand1, operand2) {
-    document.getElementById('operand1').textContent = operand1;
-    document.getElementById('operand2').textContent = operand2;
+    document.getElementById('operand1').textContent = operand1 > operand2 ? operand1 : operand2;
+    document.getElementById('operand2').textContent = operand1 > operand2 ? operand2 : operand1;
     document.getElementById('operator').textContent = "/";
 }
