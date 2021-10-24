@@ -14,6 +14,13 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         });
     }
+
+    //Allow the user to click enter to submit their answer.
+    document.getElementById('answer-box').addEventListener('keydown', function(event) {
+        if(event.key === 'Enter') {
+            checkAnswer();
+        }
+    });
     //Default game will be addition.
     runGame("addition");
 });
@@ -23,6 +30,11 @@ document.addEventListener("DOMContentLoaded", function() {
  * and after the user's answer have been processed.
  */
  function runGame(gameType) {
+
+    //Clears input for user each time a new question is loaded.
+    document.getElementById('answer-box').value = '';
+    //Place the cursor in the answer box automatically.
+    document.getElementById('answer-box').focus();
 
     // Creates two random numbers between 1 and 25
     let num1 = Math.floor(Math.random() * 25) + 1;
